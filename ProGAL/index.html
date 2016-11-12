@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+   <html>
+      <head>
+         <script type="text/javascript" src="./design.js"></script>
+         <script type="text/javascript" src="./transform.js"></script>
+         <script type="text/javascript">
+            function scene()
+{
+   this.solid_number = 0;
+   this.solid = new Array();
+   this.observer = [0, 0, 0];
+   this.distance = -650;
+}
+
+var world = new scene();
+
+var colore = 'rgb(100,255,100)';
+var alpha = 0.8;
+var teta_x_global = 0;
+var teta_y_global = 0.01;
+var motion = 0;
+var id_timer=0;
+
+
+function init()
+{
+   world.solid[world.solid_number++] = new protein1GZX([100,100,255],[0,0,0]);
+   scale_solid([3, 3, 3],world.solid[world.solid_number-1]);
+   translate_solid([-world.solid[world.solid_number-1].center[0], -world.solid[world.solid_number-1].center[1], -world.solid[world.solid_number-1].center[2]],world.solid[world.solid_number-1]);
+   translate_solid([-200, 0, -1100],world.solid[world.solid_number-1]);
+
+
+
+   document.onkeydown = onKeyDown;
+   document.onmousemove = onMouseMove;
+   setInterval(draw,30);
+
+}
+
+function changeModel()
+{
+   clearInterval(id_timer);
+   var canvas = document.getElementById("display");
+
+   if (canvas.getContext) 
+   {
+      var ctx = canvas.getContext("2d");
+
+      ctx.clearRect(0,0,1000,550);
+
+   }
+
+   if (document.getElementById("modello").value=='dino')
+   {
+      world.solid[0] = new  dinosaur([255,255,255],[0,0,0]);
+      scale_solid([3, 3, 3],world.solid[world.solid_number-1]);
+      translate_solid([-world.solid[world.solid_number-1].center[0], -world.solid[world.solid_number-1].center[1], -world.solid[world.solid_number-1].center[2]],world.solid[world.solid_number-1]);
+      translate_solid([0, 0, -1100],world.solid[world.solid_number-1]);
+   }
+   if (document.getElementById("modello").value=='heli')
+   {
+      world.solid[0] = new  helicopter([255,255,255],[0,0,0]);
+      scale_solid([12, 12, 12],world.solid[world.solid_number-1]);
+      translate_solid([-world.solid[world.solid_number-1].center[0], -world.solid[world.solid_number-1].center[1], -world.solid[world.solid_number-1].center[2]],world.solid[world.solid_number-1]);
+      translate_solid([0, 0, -1100],world.solid[world.solid_number-1]);
+   }
+   if (document.getElementById("modello").value=='ship')
+   {
+      world.solid[0] = new  ship([255,255,255],[0,0,0]);
+      scale_solid([3, 3, 3],world.solid[world.solid_number-1]);
+      translate_solid([-world.solid[world.solid_number-1].center[0], -world.solid[world.solid_number-1].center[1], -world.solid[world.solid_number-1].center[2]],world.solid[world.solid_number-1]);
+      translate_solid([0, 0, -1100],world.solid[world.solid_number-1]);
+   }
+
+   id_timer =setInterval(draw,10);
+}
+
+function onKeyDown(evt) 
+{
+
+   if(evt.keyCode==77)
+      motion = (motion+1) % 2;
+   if(evt.keyCode==82)
+      colore = 'rgb(255,0,0)';
+   if(evt.keyCode==71)
+      colore = 'rgb(0,255,0)'; 
+   if(evt.keyCode==89)
+      colore = 'rgb(255,255,0)';
+   if(evt.keyCode==66)
+      colore = 'rgb(0,0,255)';  
+   if(evt.keyCode==87)
+      colore = 'rgb(255,255,255)';    
+   if(evt.keyCode==49)
+      alpha = 0.1;
+   if(evt.keyCode==50)
+      alpha = 0.15;
+   if(evt.keyCode==51)
+      alpha = 0.2;
+   if(evt.keyCode==52)
+      alpha = 0.25;
+   if(evt.keyCode==53)
+      alpha = 0.3;
+   if(evt.keyCode==54)
+      alpha = 0.4;
+   if(evt.keyCode==55)
+      alpha = 0.5;
+   if(evt.keyCode==56)
+      alpha = 0.6;
+   if(evt.keyCode==57)
+      alpha = 0.7;
+   if(evt.keyCode==48)
+      alpha = 0.8;
+}
+
+function onMouseMove(evt) 
+{
+   var x = evt.pageX-document.getElementById("display").offsetLeft;
+   var y = evt.pageY-document.getElementById("display").offsetTop;
+
+   if ((x>0) && (x<1000) &&(y>0) && (y<550))
+   {
+      teta_y_global = 0.040*(x-500)/500;
+      teta_x_global = 0.040*(y-275)/275;
+   }
+
+}
+
+function draw() 
+{
+   var canvas = document.getElementById("display");
+   if (canvas.getContext) 
+   {
+      var ctx = canvas.getContext("2d");
+
+      if (motion==0)
+      {
+         ctx.clearRect(0,0,1000,550);
+      }
+      else
+      {
+         ctx.globalAlpha= 0.2;
+         ctx.fillStyle = 'rgb(255,255,255)';
+         ctx.fillRect(0,0,1000,550);
+      } 
+
+
+
+      ctx.fillStyle = colore;
+      ctx.strokeStyle = 'rgb(0,0,0)';
+      ctx.lineWidth = 0.5;
+      ctx.globalAlpha= alpha;
+
+      var parametrig1 = get_rotation_parameter([-200, 0, -1100], [0, 1, 0], teta_y_global);
+      var parametrig2 = get_rotation_parameter([0, 0, 0], [0, 1, 0], teta_y_global);
+      var parametrig1a = get_rotation_parameter([-200, 0, -1100], [1, 0, 0], teta_x_global);
+      var parametrig2a = get_rotation_parameter([0, 0, 0], [1, 0, 0], teta_x_global);
+
+
+
+      for (var i=0; i<world.solid_number; i++)
+      {
+         rotate_solid_fast(parametrig1, parametrig2, world.solid[i]);
+         rotate_solid_fast(parametrig1a, parametrig2a, world.solid[i]);
+      }      
+
+
+
+
+
+      var contatore = 0;
+
+      visible_polygons = new Array();
+
+      var delta_x;
+      var delta_y;
+      var delta_z;
+      for (var j=0; j<world.solid_number; j++)
+      {
+         for (var i=0; i<world.solid[j].points_number; i++)
+         {  world.solid[j].distances[i]= Math.pow(world.solid[j].points[i][0],2) + Math.pow(world.solid[j].points[i][1],2) + Math.pow(world.solid[j].points[i][2],2);
+         }}
+
+         for (var j=0; j<world.solid_number; j++)
+         {
+            for (var i=0; i<world.solid[j].faces_number; i++)
+            {
+               var max =world.solid[j].distances[world.solid[j].faces[i][0]];
+               for (var w=1; w<world.solid[j].faces[i].length; w++)
+               {
+                  if (world.solid[j].distances[world.solid[j].faces[i][w]]>max) max=world.solid[j].distances[world.solid[j].faces[i][w]]; 
+               }  
+               visible_polygons[contatore++] = {solid:j, vertex:world.solid[j].faces[i], fillcolor:world.solid[j].fillcolor, linecolor:world.solid[j].linecolor, distance:max};                     
+            }
+         }
+
+         visible_polygons.sort(sortfunction);
+
+         var projected_points = new Array();
+
+         for (var j=0; j<world.solid_number; j++)
+         {
+            projected_points[j]=new Array();
+            for (var i=0; i<world.solid[j].points.length; i++)
+            {
+               projected_points[j][i] = project(world.distance, world.solid[j].points[i]);
+            }
+         }
+         for (var i=0; i<contatore; i++)
+         {   
+
+            ctx.beginPath();
+            var indice_solido = visible_polygons[i].solid;
+            var indici_vertici = visible_polygons[i].vertex;
+
+            ctx.moveTo(projected_points[indice_solido][indici_vertici[0]][0],projected_points[indice_solido][indici_vertici[0]][1]);
+            for (var z=1;z<visible_polygons[i].vertex.length;z++)
+               ctx.lineTo(projected_points[indice_solido][indici_vertici[z]][0],projected_points[indice_solido][indici_vertici[z]][1]);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+         }
+   }
+}
+
+
+function sortfunction(a, b)
+{
+   return(b.distance-a.distance);
+}
+
+</script>
+
+<title>ProGAL - Java-library for computational geometry and protein representations.</title>
+<link rel="stylesheet" type="text/css" href="../contents.css" />
+<style type="text/css">
+   pre{
+      padding:3px;
+      margin-left:30px;
+      margin-right:30px;
+      border-style:dashed;
+      border-width:1px;
+      border-color:#8888DD;
+      font-size:0.9em;
+   }
+</style>
+ 
+
+</head>
+<body onload="init()">
+   <div id="contentsDiv">
+      <h2>ProGAL</h2>
+      <p>
+      ProGAL is a Java-library for doing computational geometry with an emphasis on characterizing and representing protein structures. The implementation is in a subversion repository at the Department of Computer Science, University of Copenhagen. If you'd like access to the code (or parts of it) please contact <a href="http://www.diku.dk/~pawel">Pawel Winter</a>. To download a jar with the byte-code right-click the following link:</p>
+      <a style="font-weight:bolder;font-size:2em;font-family:verdana;text-align:center;" href="ProGAL.jar">Download ProGAL.jar</a><br>
+      <span style="font-size:0.8em">Latest update: 27. June 2014</span>
+
+      <h3>Usage</h3>
+      <p>To use ProGAL simply include the jar in the class path of your project. For example, if you use a normal editor create a file ProGALTest.java with the following contents:</p>
+      <pre>
+import ProGAL.geom2d.viewer.J2DScene;
+import ProGAL.geom2d.*;
+
+class ProGALTest{
+   public static void main(String[] args){
+      Circle c = new Circle(new Point(0,0), 1);
+      J2DScene scene = J2DScene.createJ2DSceneInFrame();
+      scene.addShape(c, java.awt.Color.BLUE);
+   }
+}
+      </pre>
+     <p> Then at the command-line run:</p>
+      <pre>
+javac -cp ProGAL.jar:. ProGALTest.java
+java -cp ProGAL.jar:. ProGALTest</pre>
+     <p>to run a small test. If you use eclipse, simply create a project and go to the Project-menu -&gt; Properties -&gt; Java Build Path -&gt; Libraries and locate the ProGAL.jar file after pressing the 'Add external jar' button. If you wish to use the 3D visualization classes (J3DScene) you need to install <a href="http://www.oracle.com/technetwork/java/javase/tech/index-jsp-138252.html">Java3D</a> first. <b>Note: Java3D is included in Java 6 and up but currently there may be some problems with Java7 compatibility. To temporarily change the java-version, type:</b>
+     <pre>
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/ #Mac
+export JAVA_HOME=/usr/lib/jvm/java-6-sun/ #Ubuntu
+     </pre>
+      </p>
+
+      <h3>Documentation</h3>
+      <p>The documentation of ProGAL is currently maintained partly through a <a href="doc/">JavaDoc homepage</a> and partly through a <a href="http://www.diku.dk/hjemmesider/ansatte/rfonseca/ProGAL/examples/">collection of examples</a> that demonstrate the use of the library.</p>
+      <canvas id="display" width="680" height="480">
+      <img src="1GZX_complex.gif" align="right" />
+      </canvas>
+      <div style="text-align:center;font-size:0.8em">Alpha shape of protein 1GZX (chain A) computed in ProGAL. </div>
+      <p>
+      Projects that contributed to ProGAL:
+      <ul>
+         <li>Computational Geometry and Bioinformatics. Peter &amp; Henrik Sterner. Masters thesis. 2008</li>
+         <li>Rectangular Swept Spheres. Mikkel Kjær Jensen. 2010</li>
+         <li>Fitting an All-atom Protein Model to a Ca-trace. Martin Dybdal, Anders Boesen Lindbo Larsen &amp; Esben Skaarup. 2010</li>
+         <li>Applying Inverse Kinematics to Adjustable ChainTrees. Hans-Kristian Bjerregaard. Bachelor project. 2011</li>
+         <li>Void-trees. Desirée Malene Schreyer Jørgensen. Bachelor project. 2012</li>
+         <li>Bowyer-Watson any-dimensional Delaunay tessellations. Desirée Malene Schreyer Jørgensen &amp; Anni Jane Pinder. 2012</li>
+         <li>Range-trees. Søren Lynnerup. 2012</li>
+         <li>Kinetic alpha-complexs. Desirée Malene Schreyer Jørgensen. Masters thesis. 2014</li>
+      </ul>
+      </p>
+   </div>
+       <!-- Start of StatCounter Code -->
+       <script type="text/javascript">
+          var sc_project=6013182; 
+          var sc_invisible=1; 
+          var sc_security="e7863498"; 
+       </script>
+
+       <script type="text/javascript"
+          src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+             class="statcounter"><a title="hit counter for tumblr"
+                href="http://www.statcounter.com/tumblr/"
+                target="_blank"><img class="statcounter"
+                src="http://c.statcounter.com/6013182/0/e7863498/1/"
+                alt="hit counter for tumblr" ></a></div></noscript>
+       <!-- End of StatCounter Code -->
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <title>Cartesian coordineates of regular n-simplex</title>
+      <META name="description" content="Implementation for finding cartesian coordineates of regular n-simplex" />
+      <META name="keywords" content="java,geometry,math,complex" />
+
+      <link rel="stylesheet" type="text/css" href="../contents.css" />
+    </head>
+    <body>
+       <div id="contentsDiv">
+          <h1>Implementation finding the cartesian coordinates of a regular n-simplex</h1>
+          Follows <a href="http://en.wikipedia.org/wiki/Simplex#Cartesian_coordinates_for_regular_n-dimensional_simplex_in_Rn">this description on wikipedia</a>. Constructs a simplex with the specified corner-points. Assumes Simplex and Point-classes exist.
+          <pre>
+<FONT COLOR="#EE3333"><B>public</B></FONT> <FONT COLOR="#EE3333"><B>static</B></FONT> Simplex createRegularSimplex<FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT><FONT COLOR="#EE3333"><B>int</B></FONT> d<FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>{</B></FONT>
+    <FONT COLOR="#EE3333"><B>double</B></FONT> angle <FONT COLOR="#4444AA" SIZE=+1>=</FONT> <FONT COLOR="#4444AA" SIZE=+1>-</FONT><FONT COLOR=GREEN>1.0</FONT><FONT COLOR="#4444AA" SIZE=+1>/</FONT>d<FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>
+    Point<FONT COLOR="#4444AA" SIZE=+1><B>[</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>]</B></FONT> ret <FONT COLOR="#4444AA" SIZE=+1>=</FONT> <FONT COLOR="#EE3333"><B>new</B></FONT> Point<FONT COLOR="#4444AA" SIZE=+1><B>[</B></FONT>d<FONT COLOR="#4444AA" SIZE=+1>+</FONT><FONT COLOR=BROWN>1</FONT><FONT COLOR="#4444AA" SIZE=+1><B>]</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>
+    <FONT COLOR="#EE3333"><B>for</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT><FONT COLOR="#EE3333"><B>int</B></FONT> s<FONT COLOR="#4444AA" SIZE=+1>=</FONT><FONT COLOR=BROWN>0</FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>s<FONT COLOR="#4444AA" SIZE=+1>&lt;</FONT>d<FONT COLOR="#4444AA" SIZE=+1>+</FONT><FONT COLOR=BROWN>1</FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>s<FONT COLOR="#4444AA" SIZE=+1><FONT COLOR="#4444AA" SIZE=+1>+</FONT><FONT COLOR="#4444AA" SIZE=+1>+</FONT></FONT><FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT> ret<FONT COLOR="#4444AA" SIZE=+1><B>[</B></FONT>s<FONT COLOR="#4444AA" SIZE=+1><B>]</B></FONT> <FONT COLOR="#4444AA" SIZE=+1>=</FONT> <FONT COLOR="#EE3333"><B>new</B></FONT> Point<FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT><FONT COLOR="#EE3333"><B>new</B></FONT> <FONT COLOR="#EE3333"><B>double</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>[</B></FONT>d<FONT COLOR="#4444AA" SIZE=+1><B>]</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>
+                                          
+    <FONT COLOR="#EE3333"><B>double</B></FONT> tmp <FONT COLOR="#4444AA" SIZE=+1>=</FONT> <FONT COLOR=BROWN>0</FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>
+    <FONT COLOR="#EE3333"><B>for</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT><FONT COLOR="#EE3333"><B>int</B></FONT> i<FONT COLOR="#4444AA" SIZE=+1>=</FONT><FONT COLOR=BROWN>0</FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>i<FONT COLOR="#4444AA" SIZE=+1>&lt;</FONT>d<FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>i<FONT COLOR="#4444AA" SIZE=+1><FONT COLOR="#4444AA" SIZE=+1>+</FONT><FONT COLOR="#4444AA" SIZE=+1>+</FONT></FONT><FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>{</B></FONT>
+        <FONT COLOR="#EE3333"><B>double</B></FONT> nCoord <FONT COLOR="#4444AA" SIZE=+1>=</FONT> Math<FONT COLOR="#4444AA" SIZE=+1><B>.</B></FONT>sqrt<FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT><FONT COLOR=BROWN>1</FONT><FONT COLOR="#4444AA" SIZE=+1>-</FONT>tmp<FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT> 
+        ret<FONT COLOR="#4444AA" SIZE=+1><B>[</B></FONT>i<FONT COLOR="#4444AA" SIZE=+1><B>]</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>.</B></FONT>setCoord<FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT>i<FONT COLOR="#4444AA" SIZE=+1><B>,</B></FONT> nCoord<FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>
+        <FONT COLOR="#EE3333"><B>double</B></FONT> rCoord <FONT COLOR="#4444AA" SIZE=+1>=</FONT> <FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT>angle <FONT COLOR="#4444AA" SIZE=+1>-</FONT> tmp<FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT><FONT COLOR="#4444AA" SIZE=+1>/</FONT>nCoord<FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>
+
+        <FONT COLOR="#EE3333"><B>for</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT><FONT COLOR="#EE3333"><B>int</B></FONT> s<FONT COLOR="#4444AA" SIZE=+1>=</FONT>i<FONT COLOR="#4444AA" SIZE=+1>+</FONT><FONT COLOR=BROWN>1</FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>s<FONT COLOR="#4444AA" SIZE=+1>&lt;</FONT>d<FONT COLOR="#4444AA" SIZE=+1>+</FONT><FONT COLOR=BROWN>1</FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>s<FONT COLOR="#4444AA" SIZE=+1><FONT COLOR="#4444AA" SIZE=+1>+</FONT><FONT COLOR="#4444AA" SIZE=+1>+</FONT></FONT><FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT>
+            ret<FONT COLOR="#4444AA" SIZE=+1><B>[</B></FONT>s<FONT COLOR="#4444AA" SIZE=+1><B>]</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>.</B></FONT>setCoord<FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT>i<FONT COLOR="#4444AA" SIZE=+1><B>,</B></FONT> rCoord<FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>
+                                                                                                           
+        tmp <FONT COLOR="#4444AA" SIZE=+1>+</FONT><FONT COLOR="#4444AA" SIZE=+1>=</FONT> rCoord<FONT COLOR="#4444AA" SIZE=+1>*</FONT>rCoord<FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>
+    <FONT COLOR="#4444AA" SIZE=+1><B>}</B></FONT>
+                                                                                                                                
+    <FONT COLOR="#EE3333"><B>return</B></FONT> <FONT COLOR="#EE3333"><B>new</B></FONT> Simplex<FONT COLOR="#4444AA" SIZE=+1><B>(</B></FONT>ret<FONT COLOR="#4444AA" SIZE=+1><B>)</B></FONT><FONT COLOR="#4444AA" SIZE=+1><B>;</B></FONT>
+<FONT COLOR="#4444AA" SIZE=+1><B>}</B></FONT></pre>
+
+       </div>
+
+       <!-- Start of StatCounter Code -->
+       <script type="text/javascript">
+          var sc_project=6013182; 
+          var sc_invisible=1; 
+          var sc_security="e7863498"; 
+       </script>
+
+       <script type="text/javascript"
+          src="http://www.statcounter.com/counter/counter.js"></script><noscript><div class="statcounter"><a title="hit counter for tumblr"
+                href="http://www.statcounter.com/tumblr/"
+                target="_blank"><img class="statcounter"
+                src="http://c.statcounter.com/6013182/0/e7863498/1/"
+                alt="hit counter for tumblr" ></a></div></noscript>
+       <!-- End of StatCounter Code -->
+    </body>
+ </html>

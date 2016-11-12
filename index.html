@@ -1,7 +1,113 @@
+<!DOCTYPE HTML>
 <html>
-<head>
-</head>
-<body>
-Under construction
-</body>
-</html>
+   <head>
+      <title>Rasmus Fonseca</title>
+      <META name="description" content="Former Ph.D. student at Univ. of Copenhagen. I work with algorithms, optimization, bioinformatics, proteins and Java" />
+      <META name="keywords" content="java,protein,rasmus,fonseca,3d,scene,library,geometry,computer" />
+
+      <link rel="stylesheet" type="text/css" href="contents.css" />
+       <script src="bgCycle.js"></script>
+      <script type="text/javascript">
+
+         var _gaq = _gaq || [];
+         _gaq.push(['_setAccount', 'UA-9554587-3']);
+         _gaq.push(['_trackPageview']);
+
+         (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+       </script>
+    </head>
+    <body onLoad="initCycle()">
+
+       <div id="contentsDiv">
+          <h1>Rasmus Fonseca</h1>
+          <table border="0">
+             <tr><td width="60%">
+                   <p>I study efficient computational methods for modeling macromolecules (proteins, RNA and DNA) and computations of geometric properties both in 2, 3, and higher dimensions.</p>
+                   <p>I am currently a postdoc at the Department of Computer Science, University of Copenhagen (<a href="http://www.diku.dk">DIKU</a>). I did my Ph.D. studies at DIKU in Prof. <a href="http://www.diku.dk/~pawel">Pawel Winter</a>s lab and at University of California, Santa Cruz, in collaboration with Prof. <a href="http://users.soe.ucsc.edu/~karplus">Kevin Karplus</a>. From 2012-2014 I was a postdoc at INRIA Saclay with Dr. <a href="http://pages.saclay.inria.fr/julie.bernauer/">Julie Bernauer</a> and at SLAC Stanford with Dr. <a href="http://people.stanford.edu/vdbedem/">Henry van den Bedem</a>. From Dec. 2015 I'll be at Stanford University again.</p>
+
+                   </td><td width="40%" align="right" valign="top">
+                   <p>Department of Computer Science<br>
+                   University of Copenhagen<br>
+                   Universitetsparken 5, 2100 K&oslash;benhavn<br>
+                   Office: 01-0-019 HC&Oslash;<br>
+                   Phone: +45 3044 9717<br>
+                   E-mail: <a href="mailto:rfonseca@di.ku.dk">rfonseca@di.ku.dk</a><br>
+                   <a href="http://orcid.org/0000-0002-8322-4880">ORCID profile</a><br>
+                   <a href="https://dk.linkedin.com/in/rasmusfonseca">LinkedIn profile</a>
+                </td>
+             </tr>
+          </table>
+
+          <h2>Links</h2>
+          <ul>
+             <!--<li><a href="http://pages.saclay.inria.fr/rasmus.fonseca/">New homepage</a></li>-->
+             <li><a href="https://docs.google.com/document/d/1ONh3y3oMbQGZo1gpt7Y5oau2ulgYJBiPkJNaHsR1COU/edit?hl=en_US&authkey=CPv4n8MP">Curriculum Vitae</a> - My academic CV</li>
+             <li>Various software projects I (co-)authored.</li>
+             <ul>
+               <!--<li><a href="j3dScene/">J3DScene</a> - Very simple java-library for displaying a scene with cylinders, spheres, tetrahedra, text and more.</li>-->
+               <li><a href="https://people.stanford.edu/vdbedem/software">KGSrna</a> - System for characterizing the conformational flexibility of RNA orders of magnitude faster than traditional MD methods. </li>
+               <li><a href="https://github.com/DIKU-Steiner/MPC15">High-dimensional Steiner trees</a> - A C++ library for finding optimal Steiner trees in any dimension. </li>
+               <li><a href="ProGAL/">ProGAL</a> - Protein Geometric Algorithm Library. A Java library with algorithms and data structures for analyzing and representing protein structures. </li>
+               <li><a href="http://sourceforge.net/projects/pdbcluster/">PDBCluster</a> - Small C++ program that performs k-medoids and k-centers clustering of protein/RNA/DNA PDB-files using Partitioning Around Medoids (PAM) and the dRMSD metric. </li>
+               <li><a href="http://sourceforge.net/projects/kredsdesign/">KredsDesign</a> - Visual hardware simulator for a machine architecture class. Suitable companion for the book "Computer Organization and Design".</li>
+            </ul>
+             <li>Useful implementations - Solutions to small problems that I couldn't find implementations to anywhere else</li>
+             <ul>
+                <li><a href="implementations/regularSimplex.html">Java-implementation finding the cartesian coordinates of a regular n-simplex</a></li>
+                <li><a href="implementations/apollonius.html">Java-implementation that solves the problem of Apollonius (i.e. finding a circle tangent to three other circles)</a></li>
+                <li><a href="implementations/apollonius3d.pdf">Problem of Apollonius in 3D (i.e. finding a sphere tangent to four other spheres. Step-by-step description easily generalized to d-dimensions)</a></li>
+                <li><a href="implementations/gnuplotOnMac.html">Installing gnuplot (more importantly xz) on Mac with homebrew.</a></li>
+                <!--<li><a href="HandPC">Principal Components Analysis of hand-shapes visualized with gifs</a></li>-->
+             </ul>
+             <li><a href="projects.html">Project ideas</a> - Ideas I may never find the time to finish</li>
+             <li><a href="literature/lawson/index.html">Lawsons paper for flip-based Delaunay triangulations</a> - I was unable to google this paper so hopefully this will help someone else.</li>
+             <!--<li><a href="http://www.myspace.com/midobook">Klavs M&oslash;ller Hansen - myspace</a> - Artist profile for my younger brother</li>-->
+          </ul>
+
+          <h2>Publications</h2>
+          <ul>
+             <li><a href="http://online.liebertpub.com/doi/10.1089/cmb.2015.0201">Probing RNA Native Conformational Ensembles with Structural Constraints</a>. R. Fonseca, H. van den Bedem and J. Bernauer. Journal of Computational Biology. May 2016, 23(5): 362-371. </li>
+             <li><a href="http://pubs.acs.org/doi/abs/10.1021/acs.jctc.5b00995">Coupled Motions in &beta;2AR:G&alpha;s Conformational Ensembles</a>. D.V. Pachov, R. Fonseca, D. Arnol, J. 
+Bernauer, and H. van den Bedem. J. Chem. Theory Comput., 2016, 12 (3), pp 946-956. </li>
+             <li><a href="http://link.springer.com/chapter/10.1007%2F978-3-319-16706-0_11">KGSrna: Efficient 3D kinematics-based sampling for nucleic acids</a>. R. Fonseca, H. van den Bedem and J. Bernauer. Research in Computational Molecular Biology (LNCS) volume 9029, pages 80-95. 2015. [<a href="RECOMB2015/RECOMB2015_suppMat.pdf">Supplementary material</a>] [<a href="RECOMB2015/rebuild_lores.mov">Video 1</a>] [<a href="RECOMB2015/wiggle.mov">Video 2</a>]</li>
+             <li><a href="http://dimacs11.cs.princeton.edu/workshop/FonsecaBrazilWinterZachariasen.pdf">Faster Exact Algorithms for Computing Steiner Trees in Higher Dimensional Euclidean Spaces</a>. R. Fonseca, M. Brazil, P. Winter and M. Zachariasen. Pending publication</li>
+             <li><a href="http://dimacs11.cs.princeton.edu/workshop/OlsenLorenzenFonsecaWinter.pdf">Euclidean Steiner Tree Heuristic in d-Space.</a> A.E. Olsen, S.S. Lorenzen, R. Fonseca and P. Winter. Pending publication</li>
+             <li><a href="http://dx.doi.org/10.5220/0005251401780182">Alpha Complexes in Protein Structure Prediction.</a> P. Winter and R. Fonseca. In Proceedings of the International Conference on Bioinformatics Models, Methods and Algorithms. Pages 178-182. 2015</li>
+             <li><a href="http://nar.oxfordjournals.org/content/42/15/9562">Characterizing RNA dynamics from NMR data with kinematic models</a>. R. Fonseca, D.P. Pachov, J. Bernauer and H. van den Bedem. Nucleic Acids Research. 2014.</li>
+             <li><a href="Publications/FonsecaJorgensen_2012_VoidTrees.pdf">Visualizing and representing the evolution of topological features</a>. R. Fonseca and D. M. S. J&oslash;rgensen. Extended abstract for CG:YRF at Symposium of Computational Geometry. 2012. (<a href="Publications/FonsecaJorgensen_2012_VoidTrees.pdf">pdf</a>)</li>
+             <li><a href="http://online.liebertpub.com/doi/abs/10.1089/cmb.2012.0104">Bounding Volumes for Proteins: A Comparative Study</a>. R. Fonseca and P. Winter Journal of Computational Biology, 19(10): 1203-1213, 2012</li>
+             <li><a href="http://www.springerlink.com/content/y46162v55xj56536/">Ranking Beta Sheet Topologies with Applications to Protein Structure Prediction</a>. R. Fonseca, G. Helles and P. Winter. Journal of Mathematical Modelling and Algorithms, 10(4): 357-369, 2011</li>
+             <li><a href="http://www.computer.org/csdl/proceedings/isvd/2011/4483/00/4483a117-abs.html">Protein Packing Quality using Delaunay Complexes</a>. R. Fonseca. P. Winter and K. Karplus. Proceedings of ISVD 2011. Pages 117-122. 2011. (<a href="Publications/FonsecaWinterKarplus_2011_DelaunayPacking.pdf">pdf</a>)</li>
+             <li><a href="http://www.liebertonline.com/doi/abs/10.1089/cmb.2010.0320">Adjustable Chain Trees for Proteins</a>. P. Winter and R. Fonseca. Journal of Computational Biology. 19(1): 83-99. 2012</li>
+             <li><a href="http://www.iaeng.org/publication/WCECS2010/WCECS2010_pp624-628.pdf">Ranking Beta Sheet Topologies of Proteins</a>. R. Fonseca, G. Helles and P. Winter. Proceedings of WCECS, 2:624-628. 2010.</li>
+             <li><a href="http://www.springerlink.com/content/p080743m78553821/">Protein Structure Prediction using Bee Colony Optimization Metaheuristic.</a> R. Fonseca, M. Paluszewski and P. Winter. Journal of Molecular Modelling and Algorithms, 2010</li>
+             <li><a href="http://www.biomedcentral.com/1471-2105/10/338">Predicting Dihedral Angles of Coil-structure Residues from the Primary Sequence using Neural Networks.</a> R. Fonseca and G. Helles. BMC Bioinformatics 2009, 10:338</li>
+          </ul>
+       </div>
+
+      <!-- For image cycle in right side -->
+      <div id="imgCycle" style="position:absolute;right:0px;top:400px;z-index:-1;"></div>
+
+
+       <!-- Start of StatCounter Code -->
+       <script type="text/javascript">
+          var sc_project=6013182; 
+          var sc_invisible=1; 
+          var sc_security="e7863498"; 
+       </script>
+
+       <script type="text/javascript"
+          src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+             class="statcounter"><a title="hit counter for tumblr"
+                href="http://www.statcounter.com/tumblr/"
+                target="_blank"><img class="statcounter"
+                src="http://c.statcounter.com/6013182/0/e7863498/1/"
+                alt="hit counter for tumblr" ></a></div></noscript>
+       <!-- End of StatCounter Code -->
+    </body>
+ </html>

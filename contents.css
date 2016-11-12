@@ -1,0 +1,37 @@
+
+#contentsDiv{
+	position:absolute;
+	left:50%;
+	top:15px;
+	
+	width:750px;
+	margin-left:-375px;
+
+   opacity: 0.90;
+	border:1px solid #CCCCCC;
+	padding:20px;
+	background-color:rgba(255,255,255,230);
+}
+
+h2{
+	color:#555555;
+}
+
+p, li{
+/*	font-family: Psans-serif;*/
+   font-family:"Optima", "Verdanna", "Arial", "sans-serif"
+	font-size: 11pt;
+   line-height:120%;
+   margin-bottom:5px;
+   color: #111111;
+}
+a{
+	color: #4489B5;
+}
+
+body{
+	background-image: url('bg.png');
+	background-repeat:no-repeat;
+	background-position:left top;
+	background-attachment:scroll;
+}

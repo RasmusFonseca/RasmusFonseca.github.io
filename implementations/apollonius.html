@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Apollonius solver</title>
+<link rel="stylesheet" type="text/css" href="../contents.css" />
+
+</head>
+<body>
+<div id="contentsDiv">
+<h1><a href="../">Rasmus Fonseca</a></h1>
+<h2>Java-implementation that solves the problem of Apollonius (e.g. finding the minimum bounding circle of three circles)</h2>
+<p>For a description of the problem see <a href="http://en.wikipedia.org/wiki/Apollonius_problem">the wikipedia article</a>. This solution is based on the algebraic solution described in the article. </p>
+<div style="background-color:rgb(245, 245, 255);font-size:8pt;font-family:monospace;">
+<font color="#2e8b57"><b>public</b></font> <font color="#2e8b57"><b>class</b></font> ApolloniusSolver {<br />
+<br />
+<font color="#0000d4">/**</font><font color="#6a59cc"> Solves the Apollonius problem of finding a circle tangent to three other circles in the plane.</font><font color="#0000d4"> </font><br />
+<font color="#0000d4">    * The method uses approximately 68 heavy operations (multiplication, division, square-roots).</font><br />
+<font color="#0000d4">    * </font><font color="#6a59cc">@param</font><font color="#008080"> c1</font><font color="#0000d4"> One of the circles in the problem </font><br />
+
+<font color="#0000d4">    * </font><font color="#6a59cc">@param</font><font color="#008080"> c2</font><font color="#0000d4"> One of the circles in the problem</font><br />
+<font color="#0000d4">    * </font><font color="#6a59cc">@param</font><font color="#008080"> c3</font><font color="#0000d4"> One of the circles in the problem</font><br />
+<font color="#0000d4">    * </font><font color="#6a59cc">@param</font><font color="#008080"> s1</font><font color="#0000d4"> An indication if the solution should be externally or internally tangent (+1/-1) to c1</font><br />
+<font color="#0000d4">    * </font><font color="#6a59cc">@param</font><font color="#008080"> s2</font><font color="#0000d4"> An indication if the solution should be externally or internally tangent (+1/-1) to c2</font><br />
+
+<font color="#0000d4">    * </font><font color="#6a59cc">@param</font><font color="#008080"> s3</font><font color="#0000d4"> An indication if the solution should be externally or internally tangent (+1/-1) to c3</font><br />
+<font color="#0000d4">    * </font><font color="#6a59cc">@return</font><font color="#0000d4"> The solution to the problem of Apollonius. </font><br />
+<font color="#0000d4">    */</font><br />
+<font color="#2e8b57"><b>public</b></font> <font color="#2e8b57"><b>static</b></font> Circle solveApollonius(Circle c1, Circle c2, Circle c3, <font color="#2e8b57"><b>int</b></font> s1, <font color="#2e8b57"><b>int</b></font> s2, <font color="#2e8b57"><b>int</b></font> s3){<br />
+
+<font color="#2e8b57"><b>float</b></font> x1 = c1.center.x();<br />
+<font color="#2e8b57"><b>float</b></font> y1 = c1.center.y();<br />
+<font color="#2e8b57"><b>float</b></font> r1 = c1.radius;<br />
+<font color="#2e8b57"><b>float</b></font> x2 = c2.center.x();<br />
+<font color="#2e8b57"><b>float</b></font> y2 = c2.center.y();<br />
+
+<font color="#2e8b57"><b>float</b></font> r2 = c2.radius;<br />
+<font color="#2e8b57"><b>float</b></font> x3 = c3.center.x();<br />
+<font color="#2e8b57"><b>float</b></font> y3 = c3.center.y();<br />
+<font color="#2e8b57"><b>float</b></font> r3 = c3.radius;<br />
+<br />
+
+<font color="#2e8b57"><b>float</b></font> v11 = <font color="#f10883">2</font>*x2 - <font color="#f10883">2</font>*x1;<br />
+<font color="#2e8b57"><b>float</b></font> v12 = <font color="#f10883">2</font>*y2 - <font color="#f10883">2</font>*y1;<br />
+<font color="#2e8b57"><b>float</b></font> v13 = x1*x1 - x2*x2 + y1*y1 - y2*y2 - r1*r1 + r2*r2;<br />
+
+<font color="#2e8b57"><b>float</b></font> v14 = <font color="#f10883">2</font>*s2*r2 - <font color="#f10883">2</font>*s1*r1;<br />
+<br />
+<font color="#2e8b57"><b>float</b></font> v21 = <font color="#f10883">2</font>*x3 - <font color="#f10883">2</font>*x2;<br />
+
+<font color="#2e8b57"><b>float</b></font> v22 = <font color="#f10883">2</font>*y3 - <font color="#f10883">2</font>*y2;<br />
+<font color="#2e8b57"><b>float</b></font> v23 = x2*x2 - x3*x3 + y2*y2 - y3*y3 - r2*r2 + r3*r3;<br />
+<font color="#2e8b57"><b>float</b></font> v24 = <font color="#f10883">2</font>*s3*r3 - <font color="#f10883">2</font>*s2*r2;<br />
+
+<br />
+<font color="#2e8b57"><b>float</b></font> w12 = v12/v11;<br />
+<font color="#2e8b57"><b>float</b></font> w13 = v13/v11;<br />
+<font color="#2e8b57"><b>float</b></font> w14 = v14/v11;<br />
+<br />
+<font color="#2e8b57"><b>float</b></font> w22 = v22/v21-w12;<br />
+
+<font color="#2e8b57"><b>float</b></font> w23 = v23/v21-w13;<br />
+<font color="#2e8b57"><b>float</b></font> w24 = v24/v21-w14;<br />
+<br />
+<font color="#2e8b57"><b>float</b></font> P = -w23/w22;<br />
+<font color="#2e8b57"><b>float</b></font> Q = w24/w22;<br />
+
+<font color="#2e8b57"><b>float</b></font> M = -w12*P-w13;<br />
+<font color="#2e8b57"><b>float</b></font> N = w14 - w12*Q;<br />
+<br />
+<font color="#2e8b57"><b>float</b></font> a = N*N + Q*Q - <font color="#f10883">1</font>;<br />
+<font color="#2e8b57"><b>float</b></font> b = <font color="#f10883">2</font>*M*N - <font color="#f10883">2</font>*N*x1 + <font color="#f10883">2</font>*P*Q - <font color="#f10883">2</font>*Q*y1 + <font color="#f10883">2</font>*s1*r1;<br />
+
+<font color="#2e8b57"><b>float</b></font> c = x1*x1 + M*M - <font color="#f10883">2</font>*M*x1 + P*P + y1*y1 - <font color="#f10883">2</font>*P*y1 - r1*r1;<br />
+<br />
+<font color="#0000d4">// Find roots of a quadratic equation</font><br />
+<font color="#2e8b57"><b>double</b></font>[] quadSols = Polynomial.solve(<font color="#804040"><b>new</b></font> <font color="#2e8b57"><b>double</b></font>[]{a,b,c});<br />
+
+<font color="#2e8b57"><b>float</b></font> rs = (<font color="#2e8b57"><b>float</b></font>)quadSols[<font color="#f10883">0</font>];<br />
+<font color="#2e8b57"><b>float</b></font> xs = M+N*rs;<br />
+<font color="#2e8b57"><b>float</b></font> ys = P+Q*rs;<br />
+<br />
+
+<font color="#804040"><b>return</b></font> <font color="#804040"><b>new</b></font> Circle(<font color="#804040"><b>new</b></font> Vector2D(xs,ys), rs);<br />
+}<br />
+<br />
+}<br />
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Project ideas</title>
+<META name="description" content="Rasmus Fonseca - Project ideas" />
+<META name="keywords" content="java,protein,science,computer science,bioinformatics" />
+
+<link rel="stylesheet" type="text/css" href="contents.css" />
+</head>
+<body>
+<div id="contentsDiv">
+   <h1><a href="index.html">Rasmus Fonseca</a></h1>
+   <h2>Project ideas</h2>
+   <p>These are project ideas that I would love to do myself, but probably wont find the time to do in the near future. If you like any of the ideas please contact me before using them.</p>
+
+<!--
+<h3>Protein structure representations</h3>
+<p>In [<a href="http://www.citeulike.org/user/rasfonseca/article/5845728" name="CITELevitt95" rel="nofollow">Levitt95</a>] the accuracy and complexity of discrete protein representations are defined. [<a href="http://www.citeulike.org/user/rasfonseca/article/5845729" name="CITEHunter02" rel="nofollow">Hunter02</a>]
+does the same thing for continuous models. The accuracy is defined as
+the minimal RMSD that can be obtained in the model and the complexity
+is the amount of degrees of freedom. In [<a href="http://www.citeulike.org/user/rasfonseca/article/5845729" name="CITEHunter02" rel="nofollow">Hunter02</a>]
+the protein is represented using less than one DOF per amino acid. Normally two degrees are used: (phi,psi) for all-atom backbones or (theta,tau) [<a href="http://www.citeulike.org/user/rasfonseca/article/5846585" name="CITEPalu08" rel="nofollow">Paluszewski08</a>] or (alpha,kappa) [<a href="http://www.citeulike.org/user/rasfonseca/article/1138678" name="CITETung07" rel="nofollow">Tung07</a>] for C<sup><b>a</b></sup>-traces. </p>
+<p>It would be interesting to see if a similar approach as that used in [<a href="http://www.citeulike.org/user/rasfonseca/article/5845729" name="CITEHunter02" rel="nofollow">Hunter02</a>] can be used to reduce the complexity of both the all-atom representation as well as the C<sup><font face="symbol">a</font></sup>-traces.
+Possibly a spline can be interpolated in the 2-space such that the
+splines parameter can be used for the representation. An interesting
+addition to the project would be to extend the definition of accuracy
+to include side-chains center, side-chains orientation and possibly the
+orientation of hydrogen-bond-forming atom-pairs. The accuracy of the
+developed representations should naturally be tested using the extended
+definition of accuracy.</p>
+-->
+
+<!--
+<h3>Recreating all the proteins atom-positions from a C<sup>a</sup>-trace</h3>
+<p>
+To reduce the complexity and size of the search-space in protein structure prediction, a&nbsp;C<sup>a</sup>-trace  is typically used. The C<sup>a</sup>-trace only represents the position of the central carbon-atom of each amino acid, but an amino acid contains roughly 12 atoms. In order to be useful, all atoms must be added to the C<sup>α</sup>-trace model. Experiments show that this is possible, but takes a long time. </p>
+<p>It would be interesting to investigate different methods for assigning backbone and side-chain atoms such that the RMSD deviation from the C<sup>a</sup>-trace was as small as possible.  This project requires no advanced prior knowledge about proteins and energy functions and as such is a good introduction to the field. <br>
+<br>
+</p>
+-->
+<!--
+<h3>Protein meta-structure as energy function</h3>
+<p>In [<a href="http://www.springerlink.com/content/5322875887173637" target="_blank">Konrat09</a>] the concept of meta-structure is defined. For an amino acid chain with N elements the meta-structure is basically an NxN matrix where each entry a_ij is 1 if amino acid i and j are in contact (distance less than 8Å) and the distance in a contact graph otherwise. <br>
+</p>
+<p>A representation of the meta-structure can be used to extract contact-numbers, and contact maps so perhaps predicted values of either of these can be used as a basis for an energy function that uses the meta-structure. For instance, if a sheet composition is assumed to be known and you want to explore the structure of the rest of the protein, a meta-structure could capture both information about the sheet and predicted contact numbers. This project requires previous experience with protein structure prediction.<br>
+</p>
+-->
+<!--
+<h3>Solving the Steiner Tree Problem using Ant Colony Optimization</h3>
+<p>[<a href="http://portal.acm.org/citation.cfm?id=1456292">Proseger08</a>] suggested a method for using the <a href="http://en.wikipedia.org/wiki/Ant_colony_optimization">Ant Colony Optimization</a> algorithm to solve the <a href="http://en.wikipedia.org/wiki/Steiner_tree_problem" target="_blank">Steiner Tree Problem</a> (there are some others as well). Since only a relatively limited amount of work has been done on applying ACO to STP it would be interesting to investigate if any improvements can be made possibly to higher dimensional instances. It would also be interesting to see visualizations of ACO solving the planar (or 3-space) STP. </p>
+-->
+
+<!--
+<h3>Characterizing the conformation of protein sheets using Principal Component Analysis</h3>
+<p>
+[<a href="http://www-lbit.iro.umontreal.ca/bBuilder/index.html">Parisien</a>] implemented a method that generates many potentially good sheet conformations assuming that the correct pairing of strands within the sheet was known. Instead of generating many different conformations, Principal Component Analysis (PCA) could perhaps be used to characterize all variations in sheet conformations (for sheets of a specific size). This could help reduce the amount of degrees of freedom (DOF) that is required for representing the conformation of a protein. If PCA similarly could be used to represent the conformation of loops then the entire protein would be represented using very few DOF.</p>
+-->
+
+<h3>Exact GDT</h3>
+<img src="gdt.png" align="right" height="180px" />
+<p>The Global Distance Test (GDT) is a similarity measure for protein structures that indicates the largest fraction of atoms of one structure that can be superposed onto another structure such that the distance between matched atoms is less than some cutoff (typically values between 0.5Å and 10Å). This measure is extensively used in CASP and for PSP methods. </p>
+
+<p>The original algorithm for finding the GDT, called LGA, is described by Zemla and is a heuristic. There is exists, however, an exact O(n<sup>7</sup>)-method [<a href="http://www.springerlink.com/content/0lty0k19fyc5pgap/">Choi et al.</a>, <a href="http://www.springerlink.com/content/afk6eem9veydlud0/">Ambuhl et al.</a>]. Although this method may not be generally useful it would be interesting to implement it and determine how good the LGA algorithm is. It would also be interesting to investigate the expected running-time of the exact algorithm and of course if there is any room for improvements. Recently an approximation algorithm was suggested <a href="http://www.liebertonline.com/doi/abs/10.1089/cmb.2010.0123">[Li et al. 2011]</a></p>
+
+
+<!--
+<h3>Void-tree</h3>
+<p>The third Betti-number indicates the number of voids in a geometric shape. [<a href="http://www.cs.duke.edu/~edels/Papers/2002-J-04-TopologicalPersistence.pdf">Edelsbrunner02</a>] gives an algorithm for finding the Betti-numbers of an Alpha Filtration. The computation of the third Betti-number works by marking all triangles that splits a void into two voids. This causes the third Betti-number to increase by one. Each time a tetrahedron is added a void is closed and the third Betti-number decreases.</p>
+<p>To make the analysis of voids in a geometric shape more practical it could be interesting to consider the 'history' of voids as a binary tree - call it a void-tree. Before the points are added to the filtration, the entire unbounded space is the only void. This is the root of our void-tree. We now start adding simplices as specified by the Alpha Filtration. Every time a marked triangle is encountered a node in the void-tree is split. Every time a tetrahedron is added a node becomes a leaf. This datastructure can be practical for analyzing or visualizing persistence of voids. For instance, the deepest subtree whose root is not unbounded will be the most persistent void(?). 
+
+<p>It also seems interesting to investigate how fast the void-tree can be constructed. Currently, finding the Alpha Filtration, the Betti-numbers and the marked triangles is all implemented in ProGAL. </p>
+-->
+
+<h3>Topology coordinates for proteins</h3>
+<p>
+<a href="http://homepages.inf.ed.ac.uk/tkomura/Ho_Komura_EG2009.pdf">[Ho 09]</a> is a paper on character motion synthesis by topology coordinates. It would be interesting to investigate if protein motions (conformational sampling) could be performed with the writhe matrix idea.
+</p>
+
+<h3>Delaunay tessellations in higher dimensions</h3>
+<p>
+<img src="http://upload.wikimedia.org/wikipedia/commons/d/d8/5-cell.gif" align="right" style="margin:5px"/>
+Given a set of points P in d dimensions, a tessellation is the largest set of disjoint d-simplices (e.g. triangles for d=2, tetrahedra for d=3, pentachoron in d=4, etc..) with corners in P. A <a href="http://en.wikipedia.org/wiki/Delaunay_triangulation">Delaunay tessellation</a> is a tessellation where a hypersphere (e.g. circle for d=2, sphere for d=3 and 4-sphere for d=4) can be placed around each <a href="http://en.wikipedia.org/wiki/Simplex#Elements">d-simplex</a> such that no points from P are in the spheres interior. The <a href="http://en.wikipedia.org/wiki/Bowyer%E2%80%93Watson_algorithm">Bowyer-Watson algorithm</a> is a relatively easy method to find the Delaunay tessellation in any dimension. 
+</p>
+
+<p>
+It would be interesting to have an implementation to find the d-dimensional Delaunay tessellation, for example using the Bowyer-Watson algorithm. An initial implementation should be made in 2D and then extended to d dimensions. Preferably the implementation would be integrated into the <a href="http://www.diku.dk/~rfonseca/ProGAL">ProGAL library</a>. If this turns out to be trivial there are a number of possible extensions that can be explored. First, the Bowyer-Watson method is known to be fragile to rounding errors, so it can be explored how the method can be made exact. Another extension would be to explore how Delaunay tessellations could be used for clustering and data mining in higher dimensions [<a href="http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=5569365">1</a>, <a href="http://www.ijstm.com/papers/mamta_0415.pdf">2</a>]. 
+</p>
+
+<h3>Quasi-triangulation</h3>
+<img src="VD_DT_QT.png" align="left" style="width:300px;margin:5px"/>
+<p>The Delaunay triangulation of a set of points is the dual of the Voronoi diagram of the points. Similarly a quasi-triangulation of a set of circles is the dual of the Voronoi diagram of the circles (see figure). We are currently working on using Delaunay triangulations for analyzing proteins. An implementation of a method for finding quasi-triangulations, possibly in 3D, would be very relevant to our research. </p>
+
+<ul>
+   <li>Menelaos I.K. and Ioannis Z.E. Predicates for the planar additively weighted Voronoi diagram. Technical Report ECG-TR-122201-01, INRIA Sophia-Antipolis, Sophia-Antipolis (2002)</li>
+   <li>Menelaos I.K. and Ioannis Z.E. Root comparison techniques applied to computing the additively weighted Voronoi diagram. In Proc. 14th ACM-SIAM Sympos. Discrete Algorithms (SODA), pages 320-329 (2003)</li>
+   <li>Kim D.S., Kim D., Cho Y. and Sugihara K. Quasi-triangulation and interworld data structure in three dimensions. Computer-Aided Design 38(7), 808-819 (2006)</li>
+</ul>
+
+</div>
+
+       <!-- Start of StatCounter Code -->
+       <script type="text/javascript">
+          var sc_project=6013182; 
+          var sc_invisible=1; 
+          var sc_security="e7863498"; 
+       </script>
+
+       <script type="text/javascript"
+          src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+             class="statcounter"><a title="hit counter for tumblr"
+                href="http://www.statcounter.com/tumblr/"
+                target="_blank"><img class="statcounter"
+                src="http://c.statcounter.com/6013182/0/e7863498/1/"
+                alt="hit counter for tumblr" ></a></div></noscript>
+       <!-- End of StatCounter Code -->
+
+</body>
+
+</html>

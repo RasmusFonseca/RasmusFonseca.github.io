@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Apollonius solver</title>
+<link rel="stylesheet" type="text/css" href="../contents.css" />
+
+</head>
+<body>
+<div id="contentsDiv">
+<h1><a href="../">Rasmus Fonseca</a></h1>
+<h2>Installing gnuplot on Mac OSX with homebrew</h2>
+<p>When trying to install gnuplot on Yosemite I got the error 'No available formula for xz (dependency of gnuplot)'. This is odd as there is a brew formula at <a href="http://brewformulas.org/Xz">brewformulas.org/Xz</a>, but here's my solution:</p>
+<p>First create a formula:<br>
+<pre>
+$ brew create http://tukaani.org/xz/xz-5.0.7.tar.gz --set-version 5.0.7
+</pre>
+This opens up an editor with the formula. Edit it so it looks like this:
+<pre>
+require "formula"
+class Xz < Formula
+   homepage "http://tukaani.org/xz/"
+   url "http://tukaani.org/xz/xz-5.0.7.tar.gz"
+   version "5.0.7"
+   sha1 "da6d81015333785fc9399ab129e6f53fe1cbf350"
+
+   depends_on :x11 # if your formula requires any X11/XQuartz components
+
+   def install
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
+                            "--disable-silent-rules",
+                            "--prefix=#{prefix}"
+      system "make", "install" 
+   end
+
+   test do
+      system "false"
+   end
+end
+</pre>
+Save, quit and run
+<pre>
+$ brew install Xz
+$ brew link Xz
+$ brew install gnuplot --with-x
+</pre>
+This worked for me.
+</div>
+</body>
+</html>
