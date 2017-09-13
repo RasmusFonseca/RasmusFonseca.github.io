@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Lora|Open+Sans');
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2 {
+    font-family: 'Lora', serif;
+}
+
+h1{
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    text-align: center;
+}
+
+/*
+h2 {
+    margin-top: 1.2rem;
+    margin-bottom: 0.1rem;
+    font-size: 1.2em;
+}
+a {
+    color: white;
+}
+a:hover {
+    color: #aabdff;
+}
+*/
+
+.jumbotron {
+  background-color: inherit;
+}
+
+.jumbotron h3 {
+  text-align: center;
+}
+
+.jumbotron hr {
+  height: 5px;
+  color: #d0a070;
+  background-color: #d0a070;
+  width: 100%;
+  border: 0 none;
+}
+@media (min-width: 600px){
+.jumbotron hr {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+
+@media (min-width: 768px){
+.navbar .navbar-header,
+.navbar-collapse {
+    float:none;
+    display:inline-block;
+    vertical-align: top;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+nav li{
+  margin-left:20px;
+}
+}
+
+.navbar-bordered {
+  border-radius: 0;
+
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+
+}
+
+.navbar-bordered a{
+  color: #666;
+}
+
+section {
+  padding-top:40px;  
+  padding-bottom:30px; 
+  display: block;
+  overflow: auto; /* clearfix hack for project section */
+}
+
+section .h2hr, footer .h2hr {
+  height: 3px;
+  color: #d0a070;
+  background-color: #d0a070;
+  width: 50px;
+  border: 0 none;
+  margin-left: 0;
+}
+
+
+.project {
+  /*max-width: 200px;
+  float: left;
+  margin: 10px;
+*/
+  height: 300px;
+  position: relative;
+}
+
+.project .project-thumb{
+  height:10em;
+  margin-bottom: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project .project-title{
+  font-size: 1.1em;
+  background-color: #f8e0c0;
+  padding: 3px 10px 3px 10px;
+  position: absolute;
+  top: 30px;
+}
+
+.project .project-details{
+  font-size: 0.8em;
+  margin-top: 0.3em;
+}
+
+footer #profilepic{
+  width: 100%;
+margin: 15px;
+}
+
+.social {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.social ul {
+    margin: 0;
+    padding: 5px;
+}
+
+.social ul li {
+    margin: 5px;
+    list-style: none outside none;
+    display: inline-block;
+
+}
+
+.social i {
+    width: 40px;
+    height: 40px;
+    color: #FFF;
+    background-color: #909AA0;
+    font-size: 22px;
+    text-align:center;
+    padding-top: 12px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+}
+
+.social i:hover {
+    color: #FFF;
+    text-decoration: none;
+    transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+}
