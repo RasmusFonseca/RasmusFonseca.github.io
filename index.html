@@ -1,74 +1,145 @@
-<!DOCTYPE HTML>
+
 <html>
-   <head>
-      <title>Rasmus Fonseca</title>
-      <META name="description" content="Former Ph.D. student at Univ. of Copenhagen. I work with algorithms, optimization, bioinformatics, proteins and Java" />
-      <META name="keywords" content="java,protein,rasmus,fonseca,3d,scene,library,geometry,computer" />
+<head>
 
-      <link rel="stylesheet" type="text/css" href="contents.css" />
-       <script src="bgCycle.js"></script>
-      <script type="text/javascript">
+    <title>Rasmus Fonseca</title>
+    <meta name="description" content="PhD computer science" />
 
-         var _gaq = _gaq || [];
-         _gaq.push(['_setAccount', 'UA-9554587-3']);
-         _gaq.push(['_trackPageview']);
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-         (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-       </script>
-    </head>
-    <body onLoad="initCycle()">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-       <div id="contentsDiv">
-          <h1>Rasmus Fonseca</h1>
-          <table border="0">
-             <tr><td width="60%">
-                   <p>I study efficient computational methods for modeling macromolecules (proteins, RNA and DNA) and computations of geometric properties both in 2, 3, and higher dimensions.</p>
-                   <p>I am currently a visiting scholar in Brian Kobilkas lab at Stanford University. I did my Ph.D. studies at DIKU in Prof. <a href="http://www.diku.dk/~pawel">Pawel Winter</a>s lab and at University of California, Santa Cruz, in collaboration with Prof. <a href="http://users.soe.ucsc.edu/~karplus">Kevin Karplus</a>. From 2012-2014 I was a postdoc at INRIA Saclay with Dr. <a href="http://pages.saclay.inria.fr/julie.bernauer/">Julie Bernauer</a> and at SLAC Stanford with Dr. <a href="http://people.stanford.edu/vdbedem/">Henry van den Bedem</a>.</p>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-                   </td><td width="40%" align="right" valign="top">
-                   <p>Stanford University<br>
-                   Kobilka and Levitt labs<br>
-                   E-mail: <a href="mailto:rfon@stanford.edu">rfon@stanford.edu</a><br>
-                   <a href="http://orcid.org/0000-0002-8322-4880">ORCID profile</a><br>
-                   <a href="https://dk.linkedin.com/in/rasmusfonseca">LinkedIn profile</a>
-                </td>
-             </tr>
-          </table>
+<!-- Font awesome for glyph icon set -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
-          <h2>Links</h2>
-          <ul>
-             <!--<li><a href="http://pages.saclay.inria.fr/rasmus.fonseca/">New homepage</a></li>-->
-             <li><a href="https://docs.google.com/document/d/1ONh3y3oMbQGZo1gpt7Y5oau2ulgYJBiPkJNaHsR1COU/edit?hl=en_US&authkey=CPv4n8MP">Curriculum Vitae</a> - My academic CV</li>
-             <li>Various software projects I (co-)authored.</li>
-             <ul>
-               <!--<li><a href="j3dScene/">J3DScene</a> - Very simple java-library for displaying a scene with cylinders, spheres, tetrahedra, text and more.</li>-->
-               <li><a href="https://gpcrviz.github.io/flareplot/">Flareplot</a> - Interactive visualization tool for dynamic networks. </li>
-               <li><a href="https://people.stanford.edu/vdbedem/software">KGSrna</a> - System for characterizing the conformational flexibility of RNA orders of magnitude faster than traditional MD methods. </li>
-               <li><a href="https://github.com/DIKU-Steiner/MPC15">High-dimensional Steiner trees</a> - A C++ library for finding optimal Steiner trees in any dimension. </li>
-               <li><a href="ProGAL/">ProGAL</a> - Protein Geometric Algorithm Library. A Java library with algorithms and data structures for analyzing and representing protein structures. </li>
-               <li><a href="http://sourceforge.net/projects/pdbcluster/">PDBCluster</a> - Small C++ program that performs k-medoids and k-centers clustering of protein/RNA/DNA PDB-files using Partitioning Around Medoids (PAM) and the dRMSD metric. </li>
-               <li><a href="http://sourceforge.net/projects/kredsdesign/">KredsDesign</a> - Visual hardware simulator for a machine architecture class. Suitable companion for the book "Computer Organization and Design".</li>
-            </ul>
-             <li>Useful implementations - Solutions to small problems that I couldn't find implementations to anywhere else</li>
-             <ul>
-                <li><a href="implementations/regularSimplex.html">Java-implementation finding the cartesian coordinates of a regular n-simplex</a></li>
-                <li><a href="implementations/apollonius.html">Java-implementation that solves the problem of Apollonius (i.e. finding a circle tangent to three other circles)</a></li>
-                <li><a href="implementations/apollonius3d.pdf">Problem of Apollonius in 3D (i.e. finding a sphere tangent to four other spheres. Step-by-step description easily generalized to d-dimensions)</a></li>
-                <li><a href="implementations/gnuplotOnMac.html">Installing gnuplot (more importantly xz) on Mac with homebrew.</a></li>
-                <!--<li><a href="HandPC">Principal Components Analysis of hand-shapes visualized with gifs</a></li>-->
-             </ul>
-             <li><a href="projects.html">Project ideas</a> - Ideas I may never find the time to finish</li>
-             <li><a href="literature/lawson/index.html">Lawsons paper for flip-based Delaunay triangulations</a> - I was unable to google this paper so hopefully this will help someone else.</li>
-             <!--<li><a href="http://www.myspace.com/midobook">Klavs M&oslash;ller Hansen - myspace</a> - Artist profile for my younger brother</li>-->
-          </ul>
 
-          <h2>Publications</h2>
-          <ul>
+    <link href="css/style.css" rel="stylesheet">
+<style>
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="jumbotron">
+    <h1>Rasmus Fonseca</h1> 
+    <hr></hr>
+    <h3>Data mining | Structural biology | Optimization</h3> 
+  </div>
+
+<nav class="navbar navbar-bordered" role="navigation">
+  <div class="container text-center">
+    <div id="navbar" class="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="https://docs.google.com/document/d/1ONh3y3oMbQGZo1gpt7Y5oau2ulgYJBiPkJNaHsR1COU/edit?hl=en_US&authkey=CPv4n8MP">CV</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#links">Links</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+<section id="projects">
+<h2>Projects</h2>
+<hr class='h2hr'></hr>
+<!--
+<ul>
+   <li><a href="https://gpcrviz.github.io/flareplot/">Flareplot</a> - Interactive visualization tool for dynamic networks. </li>
+   <li><a href="https://github.com/ExcitedStates/KGS">KGS</a> - Framework for modeling the conformational flexibility of macromolecules.</li>
+   <li><a href="https://github.com/DIKU-Steiner/ProGAL">ProGAL</a> - Protein Geometric Algorithm Library. A Java library with algorithms and data structures for analyzing and representing protein structures. </li>
+   <li><a href="https://github.com/DIKU-Steiner/MPC15">High-dimensional Steiner trees</a> - A C++ library for finding optimal Steiner trees in any dimension. </li>
+   <li><a href="http://sourceforge.net/projects/pdbcluster/">PDBCluster</a> - Small C++ program that performs k-medoids and k-centers clustering of protein/RNA/DNA PDB-files using Partitioning Around Medoids (PAM) and the dRMSD metric. </li>
+   <li><a href="http://sourceforge.net/projects/kredsdesign/">KredsDesign</a> - Visual hardware simulator for a machine architecture class. Suitable companion for the book "Computer Organization and Design".</li>
+</ul>
+-->
+<div class="row">
+  <div class="project col-md-3 col-sm-4 col-xs-6">
+    <img class="project-thumb" src="imgs/projects/flareplot-thumb.png">
+    <div class="project-title"><a href="https://gpcrviz.github.io/flareplot/">Flareplot</a></div>
+    <div class="project-descr">Interactive visualization tool for dynamically changing networks.</div>
+    <div class="project-details">Apache-2.0 license, JavaScript / python</div>
+  </div>
+
+  <div class="project col-md-3 col-sm-4 col-xs-6">
+    <img class="project-thumb" src="imgs/projects/kgs-thumb.png">
+    <div class="project-title"><a href="https://github.com/ExcitedStates/KGS">KGS</a></div>
+    <div class="project-descr">Framework for modeling the conformational flexibility of macromolecules.</div>
+    <div class="project-details">GPL3 license, C++</div>
+  </div>
+
+  <div class="project col-md-3 col-sm-4 col-xs-6">
+    <img class="project-thumb" src="imgs/projects/progal-thumb.png">
+    <div class="project-title"><a href="https://github.com/DIKU-Steiner/ProGAL">ProGAL</a></div>
+    <div class="project-descr">Protein Geometric Algorithm Library. A Java library with algorithms and data structures for analyzing and representing protein structures.</div>
+    <div class="project-details">Apache-2.0 license, Java 1.6</div>
+  </div>
+
+  <div class="project col-md-3 col-sm-4 col-xs-6">
+    <img class="project-thumb" src="imgs/projects/mpc15-thumb.png">
+    <div class="project-title"><a href="https://github.com/DIKU-Steiner/MPC15">MPC15</a></div>
+    <div class="project-descr">A C++ application for finding optimal Euclidean Steiner trees in any dimension.</div>
+    <div class="project-details">GPL2 license, C++</div>
+  </div>
+
+  <div class="project col-md-3 col-sm-4 col-xs-6">
+    <img class="project-thumb" src="imgs/projects/pdbcluster-thumb.png">
+    <div class="project-title"><a href="http://sourceforge.net/projects/pdbcluster/">PDBCluster</a></div>
+    <div class="project-descr">Small C++ application that performs k-medoids and k-centers clustering of protein/RNA/DNA PDB-files using Partitioning Around Medoids (PAM) and the dRMSD metric.</div>
+    <div class="project-details">Apache-2.0 license, C++</div>
+  </div>
+
+  <div class="project col-md-3 col-sm-4 col-xs-6">
+    <img class="project-thumb" src="imgs/projects/kds-thumb.jpeg">
+    <div class="project-title"><a href="http://sourceforge.net/projects/kredsdesign/">KredsDesign</a></div>
+    <div class="project-descr">Visual hardware simulator for a machine architecture class. Suitable companion for the book "Computer Organization and Design".</div>
+    <div class="project-details">GPL3 license, Java</div>
+  </div>
+
+  <div class="project col-md-3 col-sm-4 col-xs-6">
+    <img class="project-thumb" src="imgs/projects/d3m-thumb.png">
+    <div class="project-title"><a href="https://github.com/RasmusFonseca/D3Matrix">D3Matrix</a></div>
+    <div class="project-descr">Library for displaying matrices of real values. Encodes magnitude of entries as circle radius and value as colors.</div>
+    <div class="project-details">MIT license, JavaScript</div>
+  </div>
+
+  <div class="project col-md-3 col-sm-4 col-xs-6">
+    <img class="project-thumb" src="imgs/projects/rangeslider-thumb.png">
+    <div class="project-title"><a href="https://rasmusfonseca.github.io/d3RangeSlider/">RangeSlider</a></div>
+    <div class="project-descr">Small library for embedding a slider that allows the user to select an integer range and press a play button.</div>
+    <div class="project-details">Apache-2.0 license, JavaScript</div>
+  </div>
+
+</div> <!-- div class=row -->
+
+</section>
+
+
+
+
+
+<section id="publications">
+<h2>Publications</h2>
+<hr class='h2hr'></hr>
+
+<ul>
+
+             <li><a href="https://doi.org/10.1002/prot.25333/pdf">Frustration-guided motion planning reveals conformational transitions in proteins</a>. D. Budday, R. Fonseca, S. Leyendecker and H. van den Bedem. Proteins. 2017, 85 1795-1807. </li>
+             <li><a href="https://doi.org/10.1093/bioinformatics/btx127">Fast, clash-free RNA conformational morphing using molecular junctions</a>. A. Heliou, D. Budday, R. Fonseca and H. van den Bedem. Bioinformatics. 2017, 33(14) 2114-2122. </li>
              <li><a href="http://online.liebertpub.com/doi/10.1089/cmb.2015.0201">Probing RNA Native Conformational Ensembles with Structural Constraints</a>. R. Fonseca, H. van den Bedem and J. Bernauer. Journal of Computational Biology. May 2016, 23(5): 362-371. </li>
              <li><a href="http://pubs.acs.org/doi/abs/10.1021/acs.jctc.5b00995">Coupled Motions in &beta;2AR:G&alpha;s Conformational Ensembles</a>. D.V. Pachov, R. Fonseca, D. Arnol, J. 
 Bernauer, and H. van den Bedem. J. Chem. Theory Comput., 2016, 12 (3), pp 946-956. </li>
@@ -86,26 +157,93 @@ Bernauer, and H. van den Bedem. J. Chem. Theory Comput., 2016, 12 (3), pp 946-95
              <li><a href="http://www.springerlink.com/content/p080743m78553821/">Protein Structure Prediction using Bee Colony Optimization Metaheuristic.</a> R. Fonseca, M. Paluszewski and P. Winter. Journal of Molecular Modelling and Algorithms, 2010</li>
              <li><a href="http://www.biomedcentral.com/1471-2105/10/338">Predicting Dihedral Angles of Coil-structure Residues from the Primary Sequence using Neural Networks.</a> R. Fonseca and G. Helles. BMC Bioinformatics 2009, 10:338</li>
           </ul>
-       </div>
 
-      <!-- For image cycle in right side -->
-      <div id="imgCycle" style="position:absolute;right:0px;top:400px;z-index:-1;"></div>
+See also <a href="http://orcid.org/0000-0002-8322-4880">ORCID profile</a><br>
+</section>
 
 
-       <!-- Start of StatCounter Code -->
-       <script type="text/javascript">
-          var sc_project=6013182; 
-          var sc_invisible=1; 
-          var sc_security="e7863498"; 
-       </script>
+<section id="links">
+<h2>Links</h2>
+<hr class='h2hr'></hr>
+<ul>
+<li>Solutions to small problems that I couldn't find implementations to anywhere else</li>
+<ul>
+   <li><a href="implementations/regularSimplex.html">Java-implementation finding the cartesian coordinates of a regular n-simplex</a></li>
+   <li><a href="implementations/apollonius.html">Java-implementation that solves the problem of Apollonius (i.e. finding a circle tangent to three other circles)</a></li>
+   <li><a href="implementations/apollonius3d.pdf">Problem of Apollonius in 3D (i.e. finding a sphere tangent to four other spheres. Step-by-step description easily generalized to d-dimensions)</a></li>
+   <li><a href="implementations/gnuplotOnMac.html">Installing gnuplot (more importantly xz) on Mac with homebrew.</a></li>
+   <!--<li><a href="HandPC">Principal Components Analysis of hand-shapes visualized with gifs</a></li>-->
+</ul>
+<li><a href="projects.html">Project ideas</a> - Ideas I may never find the time to finish</li>
+<li><a href="literature/lawson/index.html">Lawsons paper for flip-based Delaunay triangulations</a> - I was unable to google this paper so hopefully this will help someone else.</li>
+<!--<li><a href="http://www.myspace.com/midobook">Klavs M&oslash;ller Hansen - myspace</a> - Artist profile for my younger brother</li>-->
+</section>
 
-       <script type="text/javascript"
-          src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
-             class="statcounter"><a title="hit counter for tumblr"
-                href="http://www.statcounter.com/tumblr/"
-                target="_blank"><img class="statcounter"
-                src="http://c.statcounter.com/6013182/0/e7863498/1/"
-                alt="hit counter for tumblr" ></a></div></noscript>
-       <!-- End of StatCounter Code -->
-    </body>
- </html>
+
+<footer id="about">
+
+<h2>About</h2>
+<hr class='h2hr'></hr>
+
+<div class="row">
+  <div class="col-md-7">
+    <p>I develop efficient computational methods for modeling and simulating macromolecules (proteins, RNA and DNA) and computation of geometric properties both in 2, 3, and higher dimensions.</p>
+    <p>I am currently a visiting scholar in Brian Kobilkas lab at Stanford University. I completed my Ph.D. studies at Department of Computer Science, University of Copenhagen, in Prof. <a href="http://www.diku.dk/~pawel">Pawel Winter</a>s lab and at University of California, Santa Cruz, in collaboration with Prof. <a href="http://users.soe.ucsc.edu/~karplus">Kevin Karplus</a>. From 2012-2014 I was a postdoc at INRIA Saclay with Dr. <a href="http://pages.saclay.inria.fr/julie.bernauer/">Julie Bernauer</a> and at SLAC Stanford with Dr. <a href="http://people.stanford.edu/vdbedem/">Henry van den Bedem</a>.</p>
+
+    <h3>Current affiliation</h3>
+    <p>Stanford University<br>
+    <a href="http://med.stanford.edu/kobilkalab/">Kobilka lab</a>, <a href="http://med.stanford.edu/levitt.html">Levitt lab</a>, and <a href="https://people.stanford.edu/vdbedem/">van den Bedem lab</a><br>
+
+    E-mail: <a href="mailto:rfon@stanford.edu">rfon@stanford.edu</a>
+  </div>
+
+  <div class="col-md-5">
+    <br>
+    <br>
+    <div class="social">
+        <ul>
+            <li><a href="https://github.com/RasmusFonseca/"><i class="fa fa-lg fa-github"></i></a></li>
+            <li><a href="https://dk.linkedin.com/in/rasmusfonseca"><i class="fa fa-lg fa-linkedin"></i></a></li>
+            <li><a href="https://500px.com/morgengry"><i class="fa fa-lg fa-500px"></i></a></li>
+        </ul>
+    </div>
+
+  </div>
+    <img id="profilepic" src="imgs/DSC_1641_wide.jpg">
+  </div>
+</div>
+
+</footer>
+
+</div> <!-- end container -->
+
+
+
+
+    <script>
+$("nav a[href*='#']").click(function( e ){  
+    e.preventDefault();
+    var targetId = $(this).attr("href");
+    var top = $(targetId).offset().top;
+    $('html, body').stop().animate({scrollTop: top }, 1500);
+});
+    </script>
+
+    <!-- Start of StatCounter Code -->
+    <script type="text/javascript">
+    var sc_project=6013182; 
+    var sc_invisible=1; 
+    var sc_security="e7863498"; 
+    </script>
+
+    <script type="text/javascript"
+    src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+    class="statcounter"><a title="hit counter for tumblr"
+    href="http://www.statcounter.com/tumblr/"
+    target="_blank"><img class="statcounter"
+    src="http://c.statcounter.com/6013182/0/e7863498/1/"
+    alt="hit counter for tumblr" ></a></div></noscript>
+    <!-- End of StatCounter Code -->
+</body>
+</html>
+

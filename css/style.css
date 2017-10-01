@@ -81,8 +81,8 @@ nav li{
 }
 
 section {
-  padding-top:40px;  
-  padding-bottom:30px; 
+  padding-top:30px;  
+  padding-bottom:20px; 
   display: block;
   overflow: auto; /* clearfix hack for project section */
 }
