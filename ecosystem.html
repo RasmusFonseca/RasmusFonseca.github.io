@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tide Pool — an emergent ecosystem</title>
+  <link rel="stylesheet" href="ecosystem.css" />
+</head>
+<body>
+  <canvas id="sim"></canvas>
+
+  <div id="hud">
+    <h1>Tide Pool</h1>
+    <p class="sub">A small ecosystem that finds its own balance. Hover any particle.</p>
+    <ul id="legend"></ul>
+    <div class="controls">
+      <button id="pause" type="button">Pause</button>
+      <button id="reset" type="button">Reset</button>
+      <label class="speed">Speed
+        <input id="speed" type="range" min="1" max="4" step="1" value="1" />
+      </label>
+    </div>
+  </div>
+
+  <div id="tooltip" class="tooltip hidden"></div>
+
+  <div id="graph-panel">
+    <div class="graph-head">
+      <span>populations over time</span>
+      <span id="graph-legend"></span>
+    </div>
+    <canvas id="graph"></canvas>
+  </div>
+
+  <a class="back" href="index.html">&larr; meadow</a>
+
+  <script src="ecosystem.js"></script>
+</body>
+</html>

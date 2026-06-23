@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #080b11;
+  color: #cdd6e3;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#sim {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+#hud {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 10;
+  width: 290px;
+  padding: 16px 18px;
+  background: rgba(12, 16, 24, 0.72);
+  border: 1px solid rgba(120, 150, 190, 0.16);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+#hud h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+#hud .sub {
+  margin-top: 3px;
+  font-size: 0.78rem;
+  color: #8493a8;
+  line-height: 1.4;
+}
+
+#legend {
+  list-style: none;
+  margin: 14px 0 12px;
+}
+
+#legend li {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 9px;
+  padding: 5px 0;
+  border-top: 1px solid rgba(120, 150, 190, 0.1);
+}
+
+#legend li:first-child {
+  border-top: none;
+}
+
+#legend .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+#legend .name {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+#legend .desc {
+  grid-column: 2 / 4;
+  font-size: 0.7rem;
+  color: #7f8da3;
+  line-height: 1.35;
+}
+
+#legend .count {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.82rem;
+  color: #aeb9c9;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  background: rgba(90, 169, 255, 0.12);
+  color: #cfe2ff;
+  border: 1px solid rgba(90, 169, 255, 0.3);
+  border-radius: 7px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.controls button:hover {
+  background: rgba(90, 169, 255, 0.24);
+}
+
+.controls .speed {
+  font-size: 0.72rem;
+  color: #8493a8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.controls input[type="range"] {
+  width: 80px;
+  accent-color: #5aa9ff;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 20;
+  pointer-events: none;
+  min-width: 150px;
+  padding: 9px 11px;
+  background: rgba(10, 14, 22, 0.92);
+  border: 1px solid rgba(150, 175, 210, 0.25);
+  border-radius: 9px;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transform: translate(14px, 14px);
+}
+
+.tooltip.hidden {
+  display: none;
+}
+
+.tooltip .tt-title {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 3px;
+}
+
+.tooltip .tt-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  color: #9aa7ba;
+}
+
+.tooltip .tt-row b {
+  color: #e2e9f3;
+  font-weight: 600;
+}
+
+.tooltip .tt-sep {
+  margin: 6px 0 2px;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6c7a90;
+  border-top: 1px solid rgba(150, 175, 210, 0.14);
+  padding-top: 5px;
+}
+
+.tooltip .bar {
+  height: 5px;
+  margin-top: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.tooltip .bar > i {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+
+#graph-panel {
+  position: fixed;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  z-index: 8;
+  padding: 8px 12px 6px;
+  background: rgba(12, 16, 24, 0.72);
+  border: 1px solid rgba(120, 150, 190, 0.16);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.graph-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7f8da3;
+  margin-bottom: 4px;
+}
+
+#graph-legend {
+  display: flex;
+  gap: 12px;
+  font-variant-numeric: tabular-nums;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+#graph-legend span b {
+  font-weight: 700;
+}
+
+#graph {
+  display: block;
+  width: 100%;
+  height: 104px;
+}
+
+.back {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  color: #8493a8;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border: 1px solid rgba(120, 150, 190, 0.2);
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(12, 16, 24, 0.6);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.back:hover {
+  color: #cdd6e3;
+  border-color: rgba(120, 150, 190, 0.45);
+}
