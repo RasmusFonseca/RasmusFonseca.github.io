@@ -778,10 +778,21 @@ function buildLegend() {
       <span class="dot" style="background:${s.color}"></span>
       <span class="name">${s.label}</span>
       <span class="count" id="count-${key}">0</span>
+      <button class="spawn-btn" type="button" data-type="${key}">Spawn</button>
       <span class="desc">${s.desc}</span>`;
     legendEl.appendChild(li);
   }
 }
+
+function spawnOne(type) {
+  if (particles.length >= MAX_TOTAL) return;
+  particles.push(makeParticle(type, Math.random() * W, Math.random() * H));
+}
+
+legendEl.addEventListener("click", (e) => {
+  const btn = e.target.closest(".spawn-btn");
+  if (btn) spawnOne(btn.dataset.type);
+});
 
 function updateLegend(counts) {
   for (const key in counts) {
