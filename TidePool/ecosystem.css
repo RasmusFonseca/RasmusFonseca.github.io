@@ -55,7 +55,7 @@ body {
 
 #legend li {
   display: grid;
-  grid-template-columns: 14px 1fr auto;
+  grid-template-columns: 14px 1fr auto auto;
   align-items: center;
   gap: 9px;
   padding: 5px 0;
@@ -78,10 +78,27 @@ body {
 }
 
 #legend .desc {
-  grid-column: 2 / 4;
+  grid-column: 2 / 5;
   font-size: 0.7rem;
   color: #7f8da3;
   line-height: 1.35;
+}
+
+#legend .spawn-btn {
+  justify-self: end;
+  background: rgba(120, 150, 190, 0.12);
+  color: #cdd6e3;
+  border: 1px solid rgba(120, 150, 190, 0.28);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.66rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#legend .spawn-btn:hover {
+  background: rgba(120, 150, 190, 0.28);
 }
 
 #legend .count {
